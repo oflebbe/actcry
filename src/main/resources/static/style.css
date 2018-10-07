@@ -1,0 +1,178 @@
+
+@import url(https://cdn.cobi.bike/static/fonts/UniSansRegular.css);
+@import url(https://cdn.cobi.bike/static/fonts/UniSansRegularItalic.css);
+
+html {
+  background: #1d1d23;
+  margin:1vw;
+  overflow: hidden;
+}
+
+p{
+  font-family: sans-serif;
+  font: 100 1.1rem/10px 'UniSansRegular', Heveltica, Arial, san-serif; color: #00c8e6;
+}
+
+
+.face{
+  position: relative;
+  background-color: #2d2d36;
+  padding: 0;
+}
+
+.value{
+  position: absolute;
+  top: 1.1rem;
+  font-family: sans-serif;
+  font: 100 2.7rem/2.7rem 'UniSansRegularItalic', Heveltica, Arial, san-serif; color: #FFF;
+  margin: 0rem 1rem .5rem 1.5rem;
+  letter-spacing: .2rem;
+}
+
+.unit{
+  position: absolute;
+  top: 3.7rem;
+  font-family: sans-serif;
+  font: 100 1rem/1.2rem 'UniSansRegular', Heveltica, Arial, san-serif; color: #00c8e6;
+  letter-spacing: .1rem;
+  padding: .25rem 0 0 1.5rem;
+}
+
+.label{
+  position: absolute;
+  bottom: .5rem;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font: 100 1rem/1.2rem 'UniSansRegular', Heveltica, Arial, san-serif; color: #ABABAB;
+  letter-spacing: .07rem;
+  margin: 2rem .5rem 0rem 1.5rem;
+}
+
+.grid1 {
+  display: grid; grid-gap: 1rem;
+  grid-template-rows: 44vh 44vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    '🍻 💩 🎇 🎇'
+    '🍟 ⛱ 🎇 🎇';
+}
+
+.grid2 {
+  display: grid; grid-gap: 1rem;
+  grid-template-rows: 44vh 44vh;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-areas:
+    '🍻 💩 🚀 🎇'
+    '🍟 ⛱ ☄️ 🥁';
+}
+
+.grid3 {
+  display: grid; grid-gap: 1rem;
+  grid-template-rows: 44vh 44vh;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-areas:
+    '🎇 🎇 🎇 🎇'
+    '🎇 🎇 🎇 🎇';
+}
+
+#data-field1 {
+  grid-area: 🍻;
+  border-bottom: 4px solid #fa4b69;
+}
+#data-field2 {
+  grid-area: 💩;
+  border-bottom: 4px solid #c8f26d;
+}
+#data-field3 {
+  grid-area: 🍟;
+  border-bottom: 4px solid #facf47;
+}
+#data-field4 {
+  grid-area: ⛱;
+  border-bottom: 4px solid #00c8e6;
+}
+#data-field5 {
+  grid-area: 🥁;
+  border-bottom: 4px solid #FFF;
+}
+#data-field6 {
+  grid-area: 🚀;
+  border-bottom: 4px solid #FFF;
+}
+#data-field7 {
+  grid-area: ☄️;
+  border-bottom: 4px solid #FFF;
+}
+
+#tamagochi {
+  grid-area: 🎇;
+}
+
+.grid1 #data-field5,
+.grid1 #data-field6,
+.grid1 #data-field7 {
+  display: none;
+}
+
+.grid2 #tamagochi {
+  max-width: 21.5vw;
+}
+
+.grid3 #data-field1,
+.grid3 #data-field2,
+.grid3 #data-field3,
+.grid3 #data-field4,
+.grid3 #data-field5,
+.grid3 #data-field6,
+.grid3 #data-field7 {
+  display: none;
+}
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 360px; /* Set a default minimum width */
+    margin-left: -180px; /* Divide value of min-width by 2 */
+    background-color: #e8596c; /* Black background color */
+    color: #EFEFEF; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 8px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 45%; /* Center the snackbar */
+    position: absolute;
+    bottom: 10vh;
+    font: 100 1.3rem/1.2rem 'UniSansRegular', Heveltica, Arial, san-serif;
+    letter-spacing: .05rem;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+   However, delay the fade out process for 2.5 seconds */
+   -webkit-animation: fadein 0.5s, fadeout 0.5s 45s;
+   animation: fadein 0.5s, fadeout 0.5s 45s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
