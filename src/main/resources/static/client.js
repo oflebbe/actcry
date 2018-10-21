@@ -32,17 +32,16 @@ COBI.app.touchInteractionEnabled.subscribe(function(touchInteractionEnabled) {
   onWindowResize();
 });
 
-var biergarten = makeBiergarten('$h4cKth34lpS');
 
-
+window.biergarten = makeBiergarten();
 
 // Define id, name, events, formatting functions, units and default value for each item
 var definitions = [
     {
         id: 'data-field1',
         name: 'POI VISITS',
-        subscribe: biergarten.subscribe,
-        unsubscribe: biergarten.unsubscribe,
+        subscribe: window.biergarten.subscribe,
+        unsubscribe: window.biergarten.unsubscribe,
         formatter: formatInt,
         unit: 'highlights',
         defaultValue: '-',

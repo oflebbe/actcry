@@ -21,7 +21,6 @@ function subscribeGridItem(definition) {
   var formatter = definition.formatter;
   var type = definition.type;
 
-  definition.unsubscribe();
   definition.subscribe(function(value) {
       if ($.isNumeric(value)) {
           updateGridItem(definition, formatter(value));
@@ -90,15 +89,14 @@ $(window).on('load', function(e) {
        alert(value);
    }
 */
-   biergarten = makeBiergarten();
    hookDefinitions();
    COBI.mobile.location.subscribe(function(value, timestamp) {
         if (!first_fix) {
             console.log( "FIX:", value.coordinate.latitude, value.coordinate.longitude)
-            biergarten.init(value.coordinate.latitude, value.coordinate.longitude, 10000);
+            window.biergarten.init(value.coordinate.latitude, value.coordinate.longitude, 10000);
             first_fix = true;
         }
-        biergarten.add_position(value.coordinate.latitude, value.coordinate.longitude)
+       window.biergarten.add_position(value.coordinate.latitude, value.coordinate.longitude)
     });
 
   crystal_init(definitions);

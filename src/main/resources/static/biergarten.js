@@ -23,8 +23,8 @@ var makeBiergarten = function (pwd) {
         for (var i = 0; i < result.TotalResults; i++) {
             var gastro = result.Items[i];
             if (gastro !== undefined) {
-                console.log("Gastro", gastro.Latitude, gastro.Longitude, gastro.Shortname)
-                gastro_list.push({lat: gastro.Latitude, lon: gastro.Longitude, sn: gastro.Shortname, visited: false});
+                console.log("Gastro", gastro.Latitude, gastro.Longitude, gastro.Shortname);
+                gastro_list.push({'lat': gastro.Latitude, 'lon': gastro.Longitude, 'sn': gastro.Shortname, 'visited': false});
             }
         }
     }
@@ -48,7 +48,8 @@ var makeBiergarten = function (pwd) {
     }
 
     var numberOfPois = 0;
-    var my_callback;
+    var my_callback = undefined;
+
 
     var thus = {
         init: function (lat, lon, rad) {
@@ -72,7 +73,9 @@ var makeBiergarten = function (pwd) {
                     numberOfPois += 1;
                     gastro_list[i].visited = true;
                     var value = {numberOfPois: numberOfPois, lastPoi: gastro_list[i].sn};
-                    my_callback(value);
+                    if (!(my_callback === undefined)) {
+                        my_callback(value);
+                    }
                 }
             }
         }
